@@ -1,12 +1,13 @@
 # formatting
-from pandasgui import show
 import pandas as pd
 import numpy as np
+import glob
 
 # visualizers
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
+import os
 
 '''
 Todo List
@@ -21,17 +22,26 @@ Todo List
 [] clean up the code
 '''
 
-RYAN = "C://Desktop//Code//ds2500//RatCode//Rat-Code//Sources"
+def read_data(file_name):
+    main_path = os.path.dirname(__file__)
+    file_path = os.path.join(main_path, f'Sources/{file_name}')
+    df = pd.read_csv(file_path)
+    return df
 
-def read_data():
-    with open(RYAN, 'w') as f:
-        x = f.write('2023 Rat Calls.csv')
-        print(x)
-    return
-
-
+        
 def main():
-    return
+    CATCH_DATA = read_data("Somerville Catch Data simple.csv")
+    BIG_BELLY_LOCATIONS = read_data("Big Belly Locations 2021.csv")
+    BURROW_TICKETING = read_data("Burrow Ticketing 2023.csv")
+    COMMON_TRASH_TICKETS = read_data("Comm Trash Tickets 2023.csv")
+    HEATMAP = read_data("Commonwealth_Connect_Service_Requests_-_Rodent_Sightings_Heat_Map.csv")
+    RAP_REQ = read_data("RAP Requests 2015-2023.csv")
+    TRASH_VIOLATIONS = read_data("Res Trash Violations 2023.csv")
+    RAT_CALLS = read_data("2023 Rat Calls.csv")
+
+    print(RAT_CALLS)
+    
+
 
 if __name__ == "__main__":
     main()
