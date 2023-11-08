@@ -1,7 +1,7 @@
 # formatting
 import pandas as pd
 import numpy as np
-import glob
+import os
 
 # visualizers
 import matplotlib.pyplot as plt 
@@ -12,7 +12,7 @@ import os
 '''
 Todo List
 ==========
-[] Read in data
+[x] Read in data
 [] Clean data
 [] Create buffer area for proxies
 [] Count 311s within buffers
@@ -40,8 +40,6 @@ def main():
     RAT_CALLS = read_data("2023 Rat Calls.csv")
 
     print(RAT_CALLS)
-    
-
 
 if __name__ == "__main__":
     main()
