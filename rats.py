@@ -23,6 +23,9 @@ Todo List
 '''
 
 def read_data(file_name):
+    '''
+    Given a file name, reads the corresponding CSV file from the "Sources" directory and returns a Pandas DataFrame.
+    '''
     main_path = os.path.dirname(__file__)
     file_path = os.path.join(main_path, f'Sources/{file_name}')
     df = pd.read_csv(file_path)
