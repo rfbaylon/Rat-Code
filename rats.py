@@ -2,6 +2,7 @@
 from pandasgui import show
 import pandas as pd
 import numpy as np
+import os
 
 # visualizers
 import matplotlib.pyplot as plt 
@@ -24,13 +25,30 @@ Todo List
 RYAN = "C://Desktop//Code//ds2500//RatCode//Rat-Code//Sources"
 
 def read_data():
-    with open(RYAN, 'w') as f:
-        x = f.write('2023 Rat Calls.csv')
-        print(x)
+    
+    main_path = os.path.dirname(__file__)
+    file_path = os.path.join(main_path, 'Sources')
+    f = open(file_path)
+    for i in f:
+        print(i)
+    # df = pd.read_csv(f)
+    # print(df)
+ 
+
     return
 
+def read_data():
+    import glob
+    main_path = os.path.dirname(__file__)
+    file_path = os.path.join(main_path, 'Sources\*.csv')
+    
+    for fname in glob.glob(file_path):
+        print(fname)
 
 def main():
+    # read_data("2023 Rat Calls.csv")
+    # read_data()
+    test()
     return
 
 if __name__ == "__main__":
